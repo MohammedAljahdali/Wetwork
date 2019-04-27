@@ -39,21 +39,21 @@ class WeatherViewController: UIViewController {
         let indicator = startIndicator()
         
         // TODO: Call API's getWeatherDataForCityName
-        API.getWeatherDataForCityName(cityName) { (weather, err) in
+        
             // TODO: Use DispatchQueue
-            DispatchQueue.main.async {
+        
                 self.prepareAnimation()
                 indicator.removeFromSuperview()
                 
                 // TODO: Check err and weather objects passed by the completion handler
-                guard err == nil else { print(err!); return }
-                guard weather != nil else { print("No weather object found"); return }
+        
+        
                 
                 // TODO: Call updateUI(weatherObject:) to update the view
-                self.updateUI(weatherObject: weather!)
+        
                 self.startAnimation()
-            }
-        }
+            
+        
     }
     
     func updateUI(weatherObject: Weather) {
