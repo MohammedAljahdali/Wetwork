@@ -10,12 +10,13 @@ import Foundation
 
 class API {
     
-    // Note: http://api.apixu.com/v1/current.json?key=[APIKey]&q=[CityName||Coordinates]
-    static let basePath = "https://api.apixu.com/v1/current.json?key=9bb49a2850f344fc8ba74245192604"
+    // Note: http://api.weatherstack.com/current?access_key=[APIKey]&query=[CityNameORCoordinates]
+    
+    static let basePath = "http://api.weatherstack.com/current?access_key=e3ffb95a9965afa627fead7c93471af3"
     
     class func getWeatherDataForCityName(_ name: String, completion: @escaping (_ weatherObject: Weather?, _ err: Error?)->Void) {
         
-        let url = URL(string: basePath + "&q=\(name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)")!
+        let url = URL(string: basePath + "&query=\(name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)")!
         
         // TODO: Create URLRequest object
         let request = URLRequest(url: url)
@@ -34,17 +35,16 @@ class API {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                         // TODO: Use if-let to get required json dictionaries
                         if let locationJson = json["location"] as? [String: Any],
-                            let currentJson = json["current"] as? [String: Any],
-                            let conditionJson = currentJson["condition"] as? [String: Any] {
+                            let currentJson = json["current"] as? [String: Any] {
                             
                             // TODO: Complete creating weatherObject
-                            weatherObject = Weather(summary: conditionJson["text"] as! String,
-                                                        iconCode: "\(conditionJson["code"] as! Int)",
-                                                        temperature: currentJson["temp_c"] as! Double,
+                            weatherObject = Weather(summary: (currentJson["weather_descriptions"] as! [String]).first ?? "",
+                                                        iconUrl: (currentJson["weather_icons"] as! [String]).first ?? "",
+                                                        temperature: currentJson["temperature"] as! Double,
                                                         humidiy: currentJson["humidity"] as! Int,
-                                                        windSpeed: currentJson["wind_kph"] as! Double,
-                                                        cloud: currentJson["cloud"] as! Int,
-                                                        isDay: currentJson["is_day"] as! Int,
+                                                        windSpeed: currentJson["wind_speed"] as! Double,
+                                                        cloud: currentJson["cloudcover"] as! Int,
+                                                        isDay: currentJson["is_day"] as! String,
                                                         location: "\(locationJson["name"] as! String)\n\(locationJson["region"] as! String), \(locationJson["country"] as! String)")
                             
                         }

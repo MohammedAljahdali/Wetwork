@@ -63,10 +63,9 @@ class WeatherViewController: UIViewController {
         cloudLabel.text = "\(weatherObject.cloud)%"
         windSpeedLabel.text = "\(weatherObject.windSpeed) K/h"
         locationLabel.text = weatherObject.location
-        setTheme(isDay: weatherObject.isDay == 1)
+        setTheme(isDay: weatherObject.isDayBool)
         
-        let folderName = weatherObject.isDay == 1 ? "day" : "night"
-        conditionImageView.image = UIImage(named: "\(folderName)/\(weatherObject.iconName)")
+        conditionImageView.downloaded(from: weatherObject.iconUrl)
     }
     
     @IBAction func reloadBtnTapped(_ sender: Any) {

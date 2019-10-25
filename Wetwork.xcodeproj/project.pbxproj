@@ -17,6 +17,7 @@
 		D61C7B4922730BE6006A9734 /* UIViewController+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C7B4822730BE6006A9734 /* UIViewController+UIView.swift */; };
 		D61C7B4B22730F73006A9734 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61C7B4A22730F73006A9734 /* Weather.swift */; };
 		D61C7B4D2273199E006A9734 /* Icons.json in Resources */ = {isa = PBXBuildFile; fileRef = D61C7B4C2273199E006A9734 /* Icons.json */; };
+		D6A609A22363659C007318F9 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A609A12363659C007318F9 /* UIImageView.swift */; };
 		D6DA41902274CB3A00B72638 /* WeatherViewController+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA418F2274CB3A00B72638 /* WeatherViewController+UIKit.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		D61C7B4822730BE6006A9734 /* UIViewController+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIView.swift"; sourceTree = "<group>"; };
 		D61C7B4A22730F73006A9734 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		D61C7B4C2273199E006A9734 /* Icons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Icons.json; sourceTree = "<group>"; };
+		D6A609A12363659C007318F9 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		D6DA418F2274CB3A00B72638 /* WeatherViewController+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherViewController+UIKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 			children = (
 				D61C7B402272F3C5006A9734 /* UIColor.swift */,
 				D61C7B4822730BE6006A9734 /* UIViewController+UIView.swift */,
+				D6A609A12363659C007318F9 /* UIImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A609A22363659C007318F9 /* UIImageView.swift in Sources */,
 				D61C7B4B22730F73006A9734 /* Weather.swift in Sources */,
 				D61C7B4922730BE6006A9734 /* UIViewController+UIView.swift in Sources */,
 				D61C7B412272F3C5006A9734 /* UIColor.swift in Sources */,
