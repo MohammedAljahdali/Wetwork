@@ -10,13 +10,13 @@ import Foundation
 
 class API {
     
-    // Note: http://api.apixu.com/v1/current.json?key=[APIKey]&q=[CityNameORCoordinates]
+    // Note: http://api.weatherstack.com/current?access_key=[APIKey]&query=[CityNameORCoordinates]
     
-    static let basePath = "https://api.apixu.com/v1/current.json?key=9bb49a2850f344fc8ba74245192604"
+    static let basePath = "http://api.weatherstack.com/current?access_key=e3ffb95a9965afa627fead7c93471af3"
     
     class func getWeatherDataForCityName(_ name: String, completion: @escaping (_ weatherObject: Weather?, _ err: Error?)->Void) {
         
-        let url = URL(string: basePath + "&q=\(name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)")!
+        let url = URL(string: basePath + "&query=\(name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)")!
         
         // TODO: Create URLRequest object
         
