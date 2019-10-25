@@ -10,19 +10,16 @@ import Foundation
 
 struct Weather {
     let summary: String
-    let iconCode: String
+    let iconUrl: String
     let temperature: Double
     let humidiy: Int
     let windSpeed: Double
     let cloud: Int
-    let isDay: Int
+    let isDay: String
     let location: String
     
-    
-    var iconName: String {
-        let icons = try! JSONSerialization.jsonObject(with: Data(contentsOf: Bundle.main.url(forResource: "Icons", withExtension: "json")!), options: .allowFragments) as! [[String: Any]]
-        
-        return "\(icons.first(where: {"\($0["code"] as! Int)" == iconCode})!["icon"] as! Int)"
+    var isDayBool: Bool {
+        return isDay == "yes"
     }
     
     enum SerializationError:Error {
