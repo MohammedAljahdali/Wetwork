@@ -22,48 +22,35 @@ class API {
         
         
         // TODO: Create URLSession dataTask
-        
-            
-//            guard error == nil else { completion(nil, error); return }
-        
-//            var weatherObject: Weather?
-        
-//            if let data = data {
-//                do {
-        
-                    // TODO: Use if-let to convert (data) to (jsonObject) using JSONSerialization
-        
-                        // TODO: Use if-let to get required json dictionaries
-        
-        
-        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard error == nil else { completion(nil, error); return }
+                        if let data = data {
+                            let decoder = JSONDecoder()
+                            do {
+                            let json = try decoder.decode(Weather.self, from: data)
+                                
+                                print(json)
+                                completion(json, nil)
+                            } catch {
+                                print(error.localizedDescription)
+                            }
                             
-                            // TODO: Complete creating weatherObject
-//                            weatherObject = Weather(summary: ,
-//                                                        iconCode: ,
-//                                                        temperature: ,
-//                                                        humidiy: ,
-//                                                        windSpeed: ,
-//                                                        cloud: ,
-//                                                        isDay: ,
-//                                                        location: )
-//
-//                        }
-//                    }
-//                } catch {
-//                    print(error.localizedDescription)
-//                }
+                            // TODO: Call completion to notify the ViewController
+        }
+        }
+        task.resume()
+            
         
-                // TODO: Call completion to notify the ViewController
+
         
         
         
         // TODO: Call resume() on the dataTask object
     
         
-    }
+    
 }
-
+}
     
 
 
